@@ -1,0 +1,27 @@
+<template>
+    <lightning-record-view-form
+            record-id={recordId}
+            object-api-name={objName}>
+        <div class="slds-box">
+            <div style="text-align:left;">
+                <table><tr><td style="padding-right:12px;">
+                <lightning-icon icon-name={iconName} size="small"></lightning-icon></td>
+                <td>
+                    <span style="font-size:.75rem;">{objName}</span>
+                    
+                    <h3 slot="title">
+                        <lightning-output-field field-name={firstField} variant="label-hidden"></lightning-output-field>
+                    </h3>
+                
+            </td></tr></table>
+        </div>
+            <ul>
+                <template for:each={fields} for:item="cfield">
+                    <li key={cfield}>
+                        <lightning-output-field field-name={cfield}></lightning-output-field>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-record-view-form><br />
+</template>

@@ -1,0 +1,61 @@
+<template>
+    <div style="height:280px;">
+    <div class="slds-form-element slds-hide">
+        <label class="slds-form-element__label" for="text-input-id-1">{inputLabel}</label>
+        <div class="slds-form-element__control slds-input-has-icon slds-p-bottom_xx-small">
+            <lightning-icon icon-name="standard:event" alternative-text="previous month"
+                class="slds-is-absolute slds-p-top_xx-small slds-m-right_x-small"></lightning-icon>
+            <input id="text-input-id-1" placeholder="Select a date" class="slds-input slds-p-left_xx-large slds-p-top_xx-small" type="text"
+                value={date} onfocus={focusDate} />
+        </div>
+    </div>
+    <div class="slds-media__body slds-is-absolute">
+        <div > <!--class="slds-m-around_medium slds-box slds-theme_default"> -->
+            <div class="calendar" style="width:284px;">
+                <header class="calendar__head">
+                    <lightning-layout class="calendar__nav">
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <lightning-button-icon icon-name="utility:chevronleft" alternative-text="previous month"
+                                class="slds-m-left_xx-small" onclick={moveLeft}></lightning-button-icon>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <span class="calender-header-text-month calendar-month slds-text-heading_small">{month}</span>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <span class="calender-header-text-year calendar-year slds-text-heading_small">{year}</span>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <lightning-button-icon icon-name="utility:chevronright" alternative-text="next month"
+                                class="slds-m-left_xx-small" onclick={moveRight}></lightning-button-icon>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="calendar__nav">
+                        <lightning-layout-item flexibility="auto">
+                            <div>MON</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto">
+                            <div>TUE</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto">
+                            <div>WED</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto">
+                            <div>THU</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto">
+                            <div>FRI</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto">
+                            <div>SAT</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto">
+                            <div>SUN</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </header>
+                <table class='calendar__body' onclick={selectHandler} lwc:dom="manual"></table>
+            </div>
+        </div>
+    </div>
+</div>
+</template>

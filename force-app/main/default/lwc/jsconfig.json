@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/lwcchatpack": [
+                "lwcchatpack/lwcchatpack.js"
+            ],
+            "c/lwcchatpack_gmap": [
+                "lwcchatpack_gmap/lwcchatpack_gmap.js"
+            ],
+            "c/lwcchatpack_datepicker": [
+                "lwcchatpack_datepicker/lwcchatpack_datepicker.js"
+            ],
+            "c/lwcchatpack_html": [
+                "lwcchatpack_html/lwcchatpack_html.js"
+            ],
+            "c/lwcchatpack_fileupload": [
+                "lwcchatpack_fileupload/lwcchatpack_fileupload.js"
+            ],
+            "c/lwcchatpack_recordform": [
+                "lwcchatpack_recordform/lwcchatpack_recordform.js"
+            ],
+            "c/lwcchatpack_url": [
+                "lwcchatpack_url/lwcchatpack_url.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

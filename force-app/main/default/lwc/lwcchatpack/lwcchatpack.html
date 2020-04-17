@@ -1,0 +1,38 @@
+<template>
+
+    <!-- DEFAULT CHAT TEMPLATE -->
+    <template if:true={isBaseTextVisible}>
+        <div class={messageStyle}>
+            <lightning-formatted-rich-text value={strMessage}></lightning-formatted-rich-text>
+        </div>
+    </template>
+
+    <!-- Display Google Map LWC -->
+    <template if:true={gmap} >
+        <c-lwcchatpack_gmap input-params={strMessage}></c-lwcchatpack_gmap>
+    </template>
+
+    <!-- Display Date Picker LWC -->
+    <template if:true={datepicker} >
+        <c-lwcchatpack_datepicker input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_datepicker>
+    </template>
+
+    <template if:true={html} >
+        <c-lwcchatpack_html input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_html>
+    </template>
+
+    <template if:true={fileupload} >
+        <c-lwcchatpack_fileupload input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_fileupload>
+    </template>
+
+    <template if:true={recordtile} >
+        <c-lwcchatpack_recordform input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_recordform>
+    </template>
+
+    <template if:true={url} >
+        <c-lwcchatpack_url input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_url>
+    </template>
+    
+    <!-- ADD ADDITIONAL LWCs HERE -->
+
+</template>

@@ -1,0 +1,17 @@
+.selected_date{
+    -moz-border-radius: 7px; 
+    -webkit-border-radius: 7px; 
+    border-radius: 7px;
+    background-color: #005FB2;
+    color:#fff;
+}
+.calendar-cell:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+.calendar__body{
+    cursor: pointer;
+}
+.slds-media__body{
+    z-index: 10;
+}
