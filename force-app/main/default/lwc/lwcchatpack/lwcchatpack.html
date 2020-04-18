@@ -28,9 +28,9 @@
     <template if:true={recordtile} >
         <c-lwcchatpack_recordform input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_recordform>
     </template>
-
-    <template if:true={url} >
-        <c-lwcchatpack_url input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_url>
+    
+    <template if:true={carousel} >
+        <c-lwcchatpack_carousel input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_carousel>
     </template>
     
     <!-- ADD ADDITIONAL LWCs HERE -->

@@ -1,0 +1,15 @@
+<template>
+    <lightning-carousel>
+            <template for:each={tiles} for:item="tile">
+                <lightning-carousel-image key={tile.title}
+                        src={tile.src}
+                        header={tile.title}
+                        data-id={tile.title}
+                        description={tile.desc}
+                        alternative-text={tile.desc}
+                        onclick={handleClick}>
+                    </lightning-carousel-image>
+            </template>
+    </lightning-carousel>
+<br/>
+</template>
