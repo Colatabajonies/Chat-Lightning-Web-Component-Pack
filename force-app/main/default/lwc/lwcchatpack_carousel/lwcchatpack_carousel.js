@@ -22,6 +22,6 @@ export default class Lwcchatpack_carousel extends LightningElement
     handleClick(event)
     {
         //alert(event.target.dataset.id);
-        this.dispatchEvent(new CustomEvent('postmessage',{detail: event.target.dataset.id}));
+        this.dispatchEvent(new CustomEvent('postmessage',{detail: 'lwc:hide:' + event.target.dataset.id}));
     }
 }

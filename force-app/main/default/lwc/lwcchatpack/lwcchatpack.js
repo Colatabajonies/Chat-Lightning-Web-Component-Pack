@@ -25,7 +25,6 @@ export default class Lwcchatpack extends BaseChatMessage
     {
         //Set message string
         this.strMessage = this.messageContent.value;
-        
         if (this.isSupportedUserType(this.userType)) 
         {
             //if using a lwc, remove any emojis that may have been inserted by the bot (ie :D or :p )
