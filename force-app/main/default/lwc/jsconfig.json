@@ -26,6 +26,9 @@
             ],
             "c/lwcchatpack_carousel": [
                 "lwcchatpack_carousel/lwcchatpack_carousel.js"
+            ],
+            "c/lwcchatpack_flow": [
+                "lwcchatpack_flow/lwcchatpack_flow.js"
             ]
         }
     },

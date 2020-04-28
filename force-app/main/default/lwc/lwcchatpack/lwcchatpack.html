@@ -32,6 +32,10 @@
     <template if:true={carousel} >
         <c-lwcchatpack_carousel input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_carousel>
     </template>
+
+    <template if:true={flow} >
+        <c-lwcchatpack_flow input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_flow>
+    </template>
     
     <!-- ADD ADDITIONAL LWCs HERE -->
 

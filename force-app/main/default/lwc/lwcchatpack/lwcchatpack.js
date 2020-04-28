@@ -20,6 +20,7 @@ export default class Lwcchatpack extends BaseChatMessage
     @track fileupload = false;
     @track recordtile = false;
     @track carousel = false;
+    @track flow = false;
 
     connectedCallback() 
     {
@@ -56,6 +57,10 @@ export default class Lwcchatpack extends BaseChatMessage
             else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:carousel'))
             {
                 this.carousel = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:flow'))
+            {
+                this.flow = true;
             }
             
             //Add an elseif to show ur component....
