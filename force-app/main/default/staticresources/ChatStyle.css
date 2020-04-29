@@ -1,0 +1,12 @@
+ul.slds-carousel__indicators 
+{
+  display:flex;
+  margin:0.5rem 0px;
+}
+
+
+li.slds-carousel__indicator
+{
+  display:flex;
+  margin:0px 0.25rem;
+}
