@@ -41,7 +41,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>lwc:gmap:AIzaSyAOpDIOD_5ulJLIQk-Jcu0v3EwA7oYIqHo:{!mapsearch}</message>
+                <message>lwc:gmap:GMAPAPIKEY:{!mapsearch}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
