@@ -36,6 +36,10 @@
     <template if:true={flow} >
         <c-lwcchatpack_flow input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_flow>
     </template>
+
+    <template if:true={navigate} >
+        <c-lwcchatpack_navigate input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_navigate>
+    </template>
     
     <!-- ADD ADDITIONAL LWCs HERE -->
 

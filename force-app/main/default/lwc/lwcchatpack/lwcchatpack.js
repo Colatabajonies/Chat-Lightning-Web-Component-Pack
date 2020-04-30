@@ -21,6 +21,7 @@ export default class Lwcchatpack extends BaseChatMessage
     @track recordtile = false;
     @track carousel = false;
     @track flow = false;
+    @track navigate = false;
 
     connectedCallback() 
     {
@@ -61,6 +62,10 @@ export default class Lwcchatpack extends BaseChatMessage
             else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:flow'))
             {
                 this.flow = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:navigate'))
+            {
+                this.navigate = true;
             }
             
             //Add an elseif to show ur component....
