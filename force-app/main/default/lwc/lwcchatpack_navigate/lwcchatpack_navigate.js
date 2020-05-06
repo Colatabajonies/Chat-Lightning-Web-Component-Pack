@@ -33,15 +33,15 @@ export default class Lwcchatpack_navigate extends NavigationMixin(LightningEleme
         }
     }
 
-    navigatePage(pageName, sessionId) {
-        this.hasdirected = sessionStorage.getItem(sessionId + '-' + pageName);
+    navigatePage(pageName, navId) {
+        this.hasdirected = sessionStorage.getItem(navId + '-' + pageName);
         console.log('hasdirected', this.hasdirected);
         //alert(pageName);
         if(this.hasdirected){
             console.log('already went here');
             return;
         }
-        sessionStorage.setItem(sessionId + '-' + pageName, true);
+        sessionStorage.setItem(navId + '-' + pageName, true);
         this[NavigationMixin.Navigate]({
             type: 'comm__namedPage',
             attributes: {
@@ -49,15 +49,15 @@ export default class Lwcchatpack_navigate extends NavigationMixin(LightningEleme
             }
         });
     }
-    navigateArticle(url, sessionId) {
-        this.hasdirected = sessionStorage.getItem(sessionId + '-' + url);
+    navigateArticle(url, navId) {
+        this.hasdirected = sessionStorage.getItem(navId + '-' + url);
         console.log('hasdirected', this.hasdirected);
         //alert(url);
         if(this.hasdirected){
             console.log('already went here');
             return;
         }
-        sessionStorage.setItem(sessionId + '-' + url, true);
+        sessionStorage.setItem(navId + '-' + url, true);
         this[NavigationMixin.Navigate]({
             type: 'standard__knowledgeArticlePage',
             attributes: {
@@ -66,15 +66,15 @@ export default class Lwcchatpack_navigate extends NavigationMixin(LightningEleme
             }
         });
     }
-    navigateRecord(recordId, sessionId) {
-        this.hasdirected = sessionStorage.getItem(sessionId + '-' + recordId);
+    navigateRecord(recordId, navId) {
+        this.hasdirected = sessionStorage.getItem(navId + '-' + recordId);
         console.log('hasdirected', this.hasdirected);
         //alert(recordId);
         if(this.hasdirected){
             console.log('already went here');
             return;
         }
-        sessionStorage.setItem(sessionId + '-' + recordId, true);
+        sessionStorage.setItem(navId + '-' + recordId, true);
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {

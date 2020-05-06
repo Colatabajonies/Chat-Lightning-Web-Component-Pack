@@ -1,0 +1,43 @@
+<template>
+    <template if:true={showStars} >
+        <div style="display: inline-block;width: 80%;max-width: 300px">
+        <table><tr><td>
+        <lightning-icon icon-name="utility:favorite" alternative-text="1" title="1" variant={variant1} onmouseover={handleStarOver} onmouseout={handleStarOut} onclick={handleStarClick}></lightning-icon>
+        </td><td><lightning-icon icon-name="utility:favorite" alternative-text="2" title="2" variant={variant2} onmouseover={handleStarOver} onmouseout={handleStarOut} onclick={handleStarClick}></lightning-icon>
+    </td><td><lightning-icon icon-name="utility:favorite" alternative-text="3" title="3" variant={variant3} onmouseover={handleStarOver} onmouseout={handleStarOut} onclick={handleStarClick}></lightning-icon>
+    </td><td><lightning-icon icon-name="utility:favorite" alternative-text="4" title="4" variant={variant4} onmouseover={handleStarOver} onmouseout={handleStarOut} onclick={handleStarClick}></lightning-icon>
+    </td><td><lightning-icon icon-name="utility:favorite" alternative-text="5" title="5" variant={variant5} onmouseover={handleStarOver} onmouseout={handleStarOut} onclick={handleStarClick}></lightning-icon>
+    </td></tr><tr><td colspan="3">{leftTitle}</td><td colspan="2" style="text-align: right;">{rightTitle}</td></tr>
+    </table></div>
+    </template>
+    
+    <template if:true={showNPS} >
+        <div>
+        <table><tr><td colspan="2">
+            <lightning-radio-group name="radioGroup"
+            label=""
+            options={npsOptions}
+            onchange={handleNPSChange}
+            disabled={surveyDisabled}
+            type="button"></lightning-radio-group>
+
+    </td></tr><tr><td >{leftTitle}</td><td style="text-align: right;">{rightTitle}</td></tr>
+    </table></div>
+    </template>
+
+    <template if:true={showCheckBox} >
+        <div style="text-align: left;">
+        
+            <lightning-checkbox-group name="CheckboxGroup"
+            label=""
+            options={checkOptions}
+            disabled={surveyDisabled}
+            value={checkValue}
+            onchange={handlCheckChange}></lightning-checkbox-group>
+            </div>
+            <lightning-button disabled={surveyDisabled} label="OK" title="OK" onclick={handleOk} class="slds-m-left_x-small"></lightning-button>
+    </template>
+    
+    
+    <br /><br />
+</template>

@@ -9,7 +9,7 @@
 
     <!-- Display Google Map LWC -->
     <template if:true={gmap} >
-        <c-lwcchatpack_gmap input-params={strMessage}></c-lwcchatpack_gmap>
+        <c-lwcchatpack_gmap input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_gmap>
     </template>
 
     <!-- Display Date Picker LWC -->
@@ -39,6 +39,10 @@
 
     <template if:true={navigate} >
         <c-lwcchatpack_navigate input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_navigate>
+    </template>
+
+    <template if:true={survey} >
+        <c-lwcchatpack_survey input-params={strMessage} onpostmessage={handlePostMessage}></c-lwcchatpack_survey>
     </template>
     
     <!-- ADD ADDITIONAL LWCs HERE -->

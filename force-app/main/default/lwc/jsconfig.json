@@ -32,6 +32,9 @@
             ],
             "c/lwcchatpack_navigate": [
                 "lwcchatpack_navigate/lwcchatpack_navigate.js"
+            ],
+            "c/lwcchatpack_survey": [
+                "lwcchatpack_survey/lwcchatpack_survey.js"
             ]
         }
     },

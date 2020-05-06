@@ -22,6 +22,7 @@ export default class Lwcchatpack extends BaseChatMessage
     @track carousel = false;
     @track flow = false;
     @track navigate = false;
+    @track survey = false;
 
     connectedCallback() 
     {
@@ -66,6 +67,10 @@ export default class Lwcchatpack extends BaseChatMessage
             else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:navigate'))
             {
                 this.navigate = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:survey'))
+            {
+                this.survey = true;
             }
             
             //Add an elseif to show ur component....
