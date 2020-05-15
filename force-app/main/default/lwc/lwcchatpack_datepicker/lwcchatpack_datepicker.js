@@ -11,11 +11,22 @@ export default class Lwcchatpack_datepicker extends LightningElement
     @track dateValue;
     @track isEnabled = true;
 
-    renderedCallback() {
+    connectedCallback()
+    {
         if (this.jsCalInit) {
             return;
         }
+
+        this.displayed_date = new Date();
+        this.selected_date  = this.displayed_date;
+        this.date = this.selected_date.toLocaleDateString("en-US");
+
         this.jsCalInit = true;
+        
+    }
+
+    renderedCallback() 
+    {    
         this.initializeJsCalendar();
     }
 
@@ -28,7 +39,7 @@ export default class Lwcchatpack_datepicker extends LightningElement
             this.year_node  = this.template.querySelector('.calendar-year');
             this.month_node = this.template.querySelector('.calendar-month');
             this.setDateTo(this.displayed_date);
-            this.date = this.selected_date.toLocaleDateString("en-US");
+            
         }
 
         createDaysArray(date) {

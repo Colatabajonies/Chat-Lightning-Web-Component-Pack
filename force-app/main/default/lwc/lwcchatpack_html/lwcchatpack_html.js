@@ -5,7 +5,7 @@ export default class Lwcchatpack_html extends LightningElement
     @api inputParams;
     @track innerHtml = '';
 
-    renderedCallback() 
+    connectedCallback() 
     {
         //this.template.querySelector('div').innerHTML = this.inputParams.replace('lwc:html:', '');
         //alert(this.inputParams);

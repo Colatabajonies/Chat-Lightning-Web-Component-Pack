@@ -13,6 +13,16 @@
                 </botVariableOperation>
                 <type>VariableOperation</type>
             </botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>currentLocation</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                </botVariableOperation>
+                <type>VariableOperation</type>
+            </botSteps>
             <type>Group</type>
         </botSteps>
         <botSteps>
@@ -40,23 +50,67 @@
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>lwc:gmap:GMAPAPIKEY:{!mapsearch}</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Text</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>currentLocation</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>ApplyRegExToString</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>replaceString</parameterName>
+                        <type>Input</type>
+                        <value>null</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>inputString</parameterName>
+                        <type>Input</type>
+                        <variableName>currentLocation</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>pattern</parameterName>
+                        <type>Input</type>
+                        <value>lwc:hide:</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>output</parameterName>
+                        <type>Output</type>
+                        <variableName>currentLocation</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
             <botMessages>
-                <message>lwc:gmap:GMAPAPIKEY:{!mapsearch}</message>
+                <message>Your current location has been recorded as: {!currentLocation}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>Google_Map</developerName>
         <label>Google Map</label>
-        <showInFooterMenu>false</showInFooterMenu>
+        <showInFooterMenu>true</showInFooterMenu>
     </botDialogs>
     <botDialogs>
         <botSteps>
@@ -104,17 +158,11 @@ Select a Date:</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>Date_Picker</developerName>
         <label>Date Picker</label>
-        <showInFooterMenu>false</showInFooterMenu>
+        <showInFooterMenu>true</showInFooterMenu>
     </botDialogs>
     <botDialogs>
         <botSteps>
@@ -184,6 +232,9 @@ Select a Date:</message>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>Flow</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Survey</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
@@ -612,13 +663,7 @@ Select a Date:</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>Carousel</developerName>
         <label>Carousel</label>
@@ -757,17 +802,180 @@ Select a Date:</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>Flow</developerName>
         <label>Flow</label>
-        <showInFooterMenu>false</showInFooterMenu>
+        <showInFooterMenu>true</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>How are you liking this component pack?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>starnumber</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                </botVariableOperation>
+                <type>VariableOperation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>lwc:survey:star:Hate it:Love it</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Number</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>starnumber</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>You gave us {!starnumber} stars! Thanks!</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>starnumber</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                </botVariableOperation>
+                <type>VariableOperation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>How likely are you to refer us to a friend or colleague?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>lwc:survey:nps</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Number</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>starnumber</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>You gave us a NPS rating of {!starnumber}! Thanks!</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>surveytext</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                </botVariableOperation>
+                <type>VariableOperation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Select all the things you&#39;re interested in:</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>lwc:survey:checkbox:Sales Cloud;Service Cloud;Marketing Cloud; IoT;Quip;Heroku;Tableau</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Text</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>surveytext</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>ApplyRegExToString</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>replaceString</parameterName>
+                        <type>Input</type>
+                        <value>null</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>pattern</parameterName>
+                        <type>Input</type>
+                        <value>lwc:hide:</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>inputString</parameterName>
+                        <type>Input</type>
+                        <variableName>surveytext</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>output</parameterName>
+                        <type>Output</type>
+                        <variableName>surveytext</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>You selected: {!surveytext}</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Survey</developerName>
+        <label>Survey</label>
+        <showInFooterMenu>true</showInFooterMenu>
     </botDialogs>
     <conversationSystemDialogs>
         <dialog>No_Agent_Available</dialog>
@@ -789,6 +997,11 @@ Select a Date:</message>
         <label>ChatSession</label>
     </conversationVariables>
     <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>currentLocation</developerName>
+        <label>currentLocation</label>
+    </conversationVariables>
+    <conversationVariables>
         <dataType>Date</dataType>
         <developerName>datepickerVal</developerName>
         <label>datepickerVal</label>
@@ -807,6 +1020,16 @@ Select a Date:</message>
         <dataType>Text</dataType>
         <developerName>mapsearch</developerName>
         <label>mapsearch</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>starnumber</developerName>
+        <label>starnumber</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>surveytext</developerName>
+        <label>surveytext</label>
     </conversationVariables>
     <entryDialog>Welcome</entryDialog>
     <mainMenuDialog>Main_Menu</mainMenuDialog>

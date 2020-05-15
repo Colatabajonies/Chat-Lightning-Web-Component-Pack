@@ -17,7 +17,7 @@ export default class Lwcchatpack_flow extends LightningElement
         }
     }
     
-    renderedCallback()
+    connectedCallback()
     {
         this.conts = this.inputParams.split(':')[2];
         if (this.inputParams.split(':').length > 3)
