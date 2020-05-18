@@ -1,6 +1,6 @@
 <template>
     <template if:false={blReplied}>
-        <iframe class="flowframe"  style="border:solid;border-width:1px;" src={flowname} width="100%" height={flowheight} ></iframe><br/><br/>
+        <iframe class="flowframe"  style="border:solid;border-width:1px;" src={flowname} width="100%" height={flowheight} sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe><br/><br/>
     </template>
     <template if:true={blReplied}>
         <div>Flow Complete</div><br/><br/>

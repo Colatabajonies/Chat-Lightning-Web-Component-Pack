@@ -1,7 +1,7 @@
 <template>
     <template if:true={showMap} >
-        <iframe src={mapURL} width={mapWidth} height={mapHeight} style="border:0;padding-bottom:5px;" allowfullscreen=""></iframe>
+        <iframe src={mapURL} width={mapWidth} height={mapHeight} style="border:0;padding-bottom:5px;" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
     </template>
-    <lightning-button disabled={disableButton} label="Send my current location" title="Send Current Location" onclick={sendLocation} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button disabled={disableButton} label="Send my current location" title="Send Current Location" onclick={sendLocation} class="slds-m-left_x-small" ></lightning-button>
     <br /><br />
 </template>

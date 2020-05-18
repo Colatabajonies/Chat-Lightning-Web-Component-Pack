@@ -26,13 +26,13 @@ export default class Lwcchatpack_flow extends LightningElement
         }
         
         this.flowurl = unescape(this.conts).replace(/&amp;/g, '&');
-        this.comm = window.location.pathname.split('/')[1];
-        if(this.comm === 's'){
-            this.comm = '';
+        let commURL = window.location.pathname.split('/')[1];
+        if(commURL === 's'){
+            commURL = '';
         } else {
-            this.comm = '/' + this.comm;
+            commURL = '/' + commURL;
         }
-        this.flowname =   this.comm + '/s/flowcomponent?flowName=' + this.flowurl;
+        this.flowname =   commURL + '/s/flowcomponent?flowName=' + this.flowurl;
         
         //Try to handle a post from the flow finishing
         window.addEventListener('message', this.handleFinish.bind(this));
