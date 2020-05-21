@@ -13,34 +13,47 @@ export default class Lwcchatpack_datepicker extends LightningElement
 
     connectedCallback()
     {
+        this.displayed_date = new Date();
+        this.selected_date  = this.displayed_date;
+        this.date = this.selected_date.toLocaleDateString("en-US");
+    }
+    
+    renderedCallback() 
+    {
+        //Prevent inifinate loop
         if (this.jsCalInit) {
             return;
         }
 
-        this.displayed_date = new Date();
-        this.selected_date  = this.displayed_date;
-        this.date = this.selected_date.toLocaleDateString("en-US");
-
+        //If first time loading...init
         this.jsCalInit = true;
-        
+        this.setDateTo(new Date());
     }
 
-    renderedCallback() 
-    {    
-        this.initializeJsCalendar();
+    get body_node() {
+        return this.template.querySelector('.calendar__body');
     }
 
-    initializeJsCalendar() {
-            this.displayed_date = new Date()                    //date wich calendar displays now
-            this.current_day    = this.displayed_date.getDate() //current world time
-            this.selected_date  = this.displayed_date           //date that user's selected
-            
-            this.body_node  = this.template.querySelector('.calendar__body');
-            this.year_node  = this.template.querySelector('.calendar-year');
-            this.month_node = this.template.querySelector('.calendar-month');
-            this.setDateTo(this.displayed_date);
-            
-        }
+    get year_node() {
+        return this.template.querySelector('.calendar-year');
+    }
+
+    get month_node() {
+        return this.template.querySelector('.calendar-month');
+    }
+
+    //redraws the body according to the received date
+    setDateTo(date) 
+    {
+        let 
+            current_month = this.isThisMonthCurrent(date), //if it is current month, current day will be highlighted
+            new_body      = this.createCalendarBody(date, current_month)
+
+        this.year_node.innerHTML  = date.getFullYear()
+        this.month_node.innerHTML = this.getMonthName(date)
+        this.body_node.innerHTML  = ''
+        this.body_node.appendChild(new_body)
+    }
 
         createDaysArray(date) {
             let 
@@ -167,18 +180,6 @@ export default class Lwcchatpack_datepicker extends LightningElement
                 return true
             else 
                 return false
-        }
-        
-        //redraws the body according to the received date
-        setDateTo(date) {
-            let 
-                current_month = this.isThisMonthCurrent(date), //if it is current month, current day will be highlighted
-                new_body      = this.createCalendarBody(date, current_month)
-    
-            this.year_node.innerHTML  = date.getFullYear()
-            this.month_node.innerHTML = this.getMonthName(date)
-            this.body_node.innerHTML  = ''
-            this.body_node.appendChild(new_body)
         }
             
         //redraws the calendar a month in backward

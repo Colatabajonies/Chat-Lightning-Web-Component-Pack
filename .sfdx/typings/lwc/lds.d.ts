@@ -82,7 +82,7 @@ declare module 'lightning/uiObjectInfoApi' {
      * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_picklist_values.htm
      *
      * @param fieldApiName The picklist field's object-qualified API name.
-     * @param recordTypeId The record type ID.
+     * @param recordTypeId The record type ID. Pass '012000000000000AAA' for the master record type.
      */
     export function getPicklistValues(fieldApiName: string | FieldId, recordTypeId: string): void;
 
@@ -92,7 +92,7 @@ declare module 'lightning/uiObjectInfoApi' {
      * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_picklist_values_collection.htm
      *
      * @param objectApiName API name of the object.
-     * @param recordTypeId Record type ID. 
+     * @param recordTypeId Record type ID. Pass '012000000000000AAA' for the master record type.
      */
     export function getPicklistValuesByRecordType(objectApiName: string, recordTypeId: string): void;
 }
